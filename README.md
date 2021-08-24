@@ -28,7 +28,7 @@ The bulk of your Python code should live in the `app\models` folder and you shou
 
 * Use `make stop` to stop the service .
 
-The API comes with **Basic Authentication**; to see the docs and use the other endpoint you need to log in as **"username" with password "password"**. If you want you can change the defualt values by updating the env variables `API_USERNAME` and `API_PASSWORD` in the `.env` file (and update the verification in `app\main.py`). The idea is that you have a more robust security scheme (e.g. OAuth2 with JWT) at an higher level in you app but you still want to add a basic auth to the API microservice when querying it.
+The API comes with **Basic Authentication**. In order to see the docs and use the other endpoints you need to log in as **"username" with password "password"**. If you want you can change the defualt values by updating the env variables `API_USERNAME` and `API_PASSWORD` in the `.env` file (and update the verification in `app\main.py`). The idea is that you have a more robust security scheme (e.g. OAuth2 with JWT) at an higher level in you app but you still want to add a basic auth to the API microservice when querying it.
 
 ## Development
 * Use `make test` to run the tests
