@@ -20,17 +20,24 @@ def test_always_fails():
 # Testing api responses
 client = TestClient(app)
 
+auth = ("username", "password")
 
-def test_status(disable_network_calls):
+
+def test_status(_disable_network_calls):
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"status": "Ok"}
 
 
-def test_get_array(disable_network_calls):
-    response = client.get("/array")
+def test_get_array(_disable_network_calls):
+    response = client.get("/array", auth=auth)
     parsed_response = json.loads(response.text)
-    print(parsed_response) # test and fix not authenticated
     array_restored = np.array(parsed_response["result"])
     assert isinstance(array_restored, np.ndarray)
     assert array_restored.shape == (5,)
+
+
+def test_get_array_without_auth(_disable_network_calls):
+    response = client.get("/array")
+    parsed_response = json.loads(response.text)
+    assert parsed_response["detail"] == "Not authenticated"

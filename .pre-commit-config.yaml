@@ -1,0 +1,17 @@
+repos:
+  - repo: local #https://github.com/ambv/black
+    #rev: 20.8b1
+    hooks:
+      - id: system
+        name: Black
+        entry: poetry run black .
+        pass_filenames: false
+        language: system
+  - repo: local
+    hooks:
+      - id: system
+        name: Pylint
+        entry: poetry run pylint app tests
+        pass_filenames: false
+        language: system
+        #types: [python]
