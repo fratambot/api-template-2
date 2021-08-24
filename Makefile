@@ -35,9 +35,7 @@ local-lint:
 	else \
 		echo "Poetry found ! Installing the venv..."; \
 		poetry install --no-root; \
-		echo "\n${BOLD}Running black..."; \
-		poetry run black app tests; \
-		echo "\n${BOLD}Running pylint..."; \
-		poetry run pylint app tests; \
+		echo "\n${BOLD}Running pre-commit script..."; \
+		poetry run pre-commit run --all-files; \
 	fi
 .PHONY: local-lint

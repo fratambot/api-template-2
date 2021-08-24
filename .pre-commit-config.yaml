@@ -1,6 +1,5 @@
 repos:
-  - repo: local #https://github.com/ambv/black
-    #rev: 20.8b1
+  - repo: local
     hooks:
       - id: system
         name: Black
@@ -14,4 +13,3 @@ repos:
         entry: poetry run pylint app tests
         pass_filenames: false
         language: system
-        #types: [python]
